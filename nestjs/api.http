@@ -1,0 +1,138 @@
+GET http://localhost:3000
+
+###
+POST http://localhost:3000/assets
+Content-Type: application/json
+
+{
+  "id": "PETR4",
+  "symbol": "PERT4",
+  "price": 123
+}
+
+###
+GET http://localhost:3000/assets
+
+
+###
+GET http://localhost:3000/wallets
+
+###
+POST http://localhost:3000/wallets
+Content-Type: application/json
+
+{
+  "id": "biascb"
+}
+
+###
+GET http://localhost:3000/wallets/brnocorreia/assets
+
+###
+GET http://localhost:3000/wallets/biascb/assets
+
+###
+POST http://localhost:3000/wallets/brnocorreia/assets
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 10
+}
+
+###
+POST http://localhost:3000/wallets/biascb/assets
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 10
+}
+
+###
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "wallet_id": "wallet2",
+  "shares": 5,
+  "price": 123,
+  "type": "BUY"
+}
+
+###
+POST http://localhost:3000/wallets/brnocorreia/orders
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 5,
+  "price": 114,
+  "type": "SELL"
+}
+
+###
+POST http://localhost:3000/wallets/brnocorreia/orders
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 5,
+  "price": 123,
+  "type": "BUY"
+}
+
+###
+POST http://localhost:3000/wallets/biascb/orders
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 5,
+  "price": 123,
+  "type": "SELL"
+}
+
+###
+POST http://localhost:3000/wallets/biascb/orders
+Content-Type: application/json
+
+{
+  "asset_id": "ITSA",
+  "shares": 5,
+  "price": 114,
+  "type": "BUY"
+}
+
+###
+GET http://localhost:3000/wallets/brnocorreia/orders
+
+###
+GET http://localhost:3000/wallets/biascb/orders
+
+###
+POST http://localhost:3000/wallets/brnocorreia/orders/execute
+Content-Type: application/json
+
+{
+  "order_id": "6577927d4728c0c453ca59fe",
+  "status": "CLOSED",
+  "related_investor_id": "brnocorreia",
+  "broker_transaction_id": "xxxx",
+  "negotiated_shares": 5,
+  "price": 114
+}
+
+###
+POST http://localhost:3000/wallets/biascb/orders/execute
+Content-Type: application/json
+
+{
+  "order_id": "657792a44728c0c453ca59ff",
+  "status": "CLOSED",
+  "related_investor_id": "biascb",
+  "broker_transaction_id": "xxxx",
+  "negotiated_shares": 5,
+  "price": 114
+}
